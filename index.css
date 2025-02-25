@@ -310,3 +310,275 @@ body {
     width: 100%;
   }
 }
+
+/* 다크모드 테마 설정 */
+body[data-theme='dark'] {
+  --background-color: #121212;
+  --card-color: #1e1e1e;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --primary-color: #4aa3df;
+  --secondary-color: #3b8ac4;
+  --correct-color: #27ae60;
+  --wrong-color: #c0392b;
+}
+
+body[data-theme='light'] {
+  --background-color: #f5f6fa;
+  --card-color: #ffffff;
+  --text-primary: #2c3e50;
+  --text-secondary: #7f8c8d;
+  --primary-color: #3498db;
+  --secondary-color: #2980b9;
+  --correct-color: #2ecc71;
+  --wrong-color: #e74c3c;
+}
+
+/* 다크모드 토글 버튼 */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px;
+  font-size: 1.2rem;
+  background-color: var(--card-color);
+  border: 1px solid var(--text-secondary);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  z-index: 1000;
+}
+
+.theme-toggle:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* 스켈레톤 로딩 스타일 */
+.skeleton-container {
+  padding: 20px;
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--card-color) 25%,
+    rgba(200, 200, 200, 0.1) 50%,
+    var(--card-color) 75%
+  );
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.skeleton-title {
+  height: 30px;
+  width: 50%;
+}
+
+.skeleton-line {
+  height: 20px;
+  width: 100%;
+}
+
+.skeleton-button {
+  height: 40px;
+  width: 30%;
+}
+
+@keyframes loading {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+/* 정답/오답 피드백 스타일 */
+.feedback {
+  margin: 15px 0;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.correct-feedback {
+  background-color: rgba(46, 204, 113, 0.2);
+  color: var(--correct-color);
+}
+
+.wrong-feedback {
+  background-color: rgba(231, 76, 60, 0.2);
+  color: var(--wrong-color);
+}
+
+/* 해설 섹션 스타일 */
+.explanation {
+  margin: 15px 0;
+  padding: 15px;
+  background-color: rgba(52, 152, 219, 0.1);
+  border-left: 4px solid var(--primary-color);
+  border-radius: 4px;
+}
+
+/* 정답률 그래프 스타일 */
+.stats-chart {
+  margin: 20px 0;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 20px;
+  background-color: #f1f2f6;
+  position: relative;
+}
+
+.stats-bar {
+  height: 100%;
+  background-color: var(--primary-color);
+}
+
+.stats-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+/* 키보드 단축키 안내 스타일 */
+.keyboard-shortcuts {
+  margin-top: 20px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+@media (prefers-color-scheme: dark) {
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      var(--card-color) 25%,
+      rgba(50, 50, 50, 0.5) 50%,
+      var(--card-color) 75%
+    );
+    background-size: 200% 100%;
+  }
+
+  .stats-chart {
+    background-color: #2b2b2b;
+  }
+}
+
+/* 새로운 버튼 스타일 */
+.new-button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.new-button:hover {
+  background-color: var(--secondary-color);
+}
+
+/* 🌙 다크모드 지원 */
+@media (prefers-color-scheme: dark) {
+  .new-button {
+    background-color: var(--secondary-color);
+  }
+
+  .new-button:hover {
+    background-color: var(--primary-color);
+  }
+}
+
+/* 모달 스타일 */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* 배경 어둡게 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: var(--card-color);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 300px;
+}
+
+/* 버튼 컨테이너 */
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+/* 버튼 스타일 */
+.modal-buttons button {
+  flex: 1;
+  padding: 10px 15px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+/* 예 버튼 */
+.modal-buttons .yes-button {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.modal-buttons .yes-button:hover {
+  background-color: var(--secondary-color);
+}
+
+/* 아니오 버튼 */
+.modal-buttons .no-button {
+  background-color: #ecf0f1;
+  color: var(--text-primary);
+}
+
+.modal-buttons .no-button:hover {
+  background-color: #d6dbdf;
+}
+
+/* 🌙 다크모드 대응 */
+@media (prefers-color-scheme: dark) {
+  .modal-content {
+    background: var(--card-color);
+  }
+
+  .modal-buttons .no-button {
+    background-color: #3b3b3b;
+    color: var(--text-primary);
+  }
+
+  .modal-buttons .no-button:hover {
+    background-color: #525252;
+  }
+}
