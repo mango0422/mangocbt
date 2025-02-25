@@ -1,0 +1,312 @@
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2980b9;
+  --correct-color: #2ecc71;
+  --wrong-color: #e74c3c;
+  --background-color: #f5f6fa;
+  --card-color: #ffffff;
+  --text-primary: #2c3e50;
+  --text-secondary: #7f8c8d;
+}
+
+/* 🌙 다크모드 설정 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #121212;
+    --card-color: #1e1e1e;
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+    --primary-color: #4aa3df;
+    --secondary-color: #3b8ac4;
+    --correct-color: #27ae60;
+    --wrong-color: #c0392b;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif, Arial;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-primary);
+  line-height: 1.6;
+  padding: 20px;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.quiz-list {
+  list-style: none; /* 기본 점(●) 제거 */
+  padding: 0; /* 기본 padding 제거 */
+}
+
+.quiz-list li {
+  margin-bottom: 10px; /* 각 리스트 아이템 간격 */
+}
+
+.quiz-app {
+  background-color: var(--card-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.quiz-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.quiz-header h1 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.progress-container {
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  margin: 15px 0;
+  height: 10px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  transition: width 0.5s ease-in-out;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+.quiz-content {
+  padding: 10px 0;
+}
+
+.question {
+  margin-bottom: 20px;
+}
+
+.question-number {
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-right: 5px;
+}
+
+.question-text {
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option {
+  background-color: #f1f2f6;
+  padding: 12px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 2px solid transparent;
+}
+
+.option:hover {
+  background-color: #dfe4ea;
+}
+
+.option.selected {
+  background-color: #d6eaf8;
+  border-color: var(--primary-color);
+}
+
+.option.correct {
+  background-color: rgba(46, 204, 113, 0.2);
+  border-color: var(--correct-color);
+}
+
+.option.wrong {
+  background-color: rgba(231, 76, 60, 0.2);
+  border-color: var(--wrong-color);
+}
+
+/* 🌙 다크모드에서 옵션 스타일 조정 */
+@media (prefers-color-scheme: dark) {
+  .option {
+    background-color: #2b2b2b;
+  }
+  .option:hover {
+    background-color: #3b3b3b;
+  }
+  .option.selected {
+    background-color: rgba(74, 163, 223, 0.2);
+    border-color: var(--primary-color);
+  }
+}
+
+.option-label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.quiz-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color);
+}
+
+.btn-secondary {
+  background-color: #ecf0f1;
+  color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+  background-color: #d6dbdf;
+}
+
+.btn-disabled {
+  background-color: #bdc3c7;
+  color: #7f8c8d;
+  cursor: not-allowed;
+}
+
+/* 🌙 다크모드에서 버튼 스타일 변경 */
+@media (prefers-color-scheme: dark) {
+  .btn-primary {
+    background-color: var(--primary-color);
+  }
+  .btn-primary:hover {
+    background-color: var(--secondary-color);
+  }
+  .btn-secondary {
+    background-color: #3b3b3b;
+    color: var(--text-primary);
+  }
+  .btn-secondary:hover {
+    background-color: #525252;
+  }
+  .btn-disabled {
+    background-color: #444;
+    color: #777;
+  }
+}
+
+.results {
+  text-align: center;
+  padding: 20px;
+}
+
+.results h2 {
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.score {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+.score-details {
+  margin-bottom: 20px;
+}
+
+.review-list {
+  text-align: left;
+  margin-top: 30px;
+}
+
+.review-item {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.review-item.correct {
+  background-color: rgba(46, 204, 113, 0.1);
+}
+
+.review-item.wrong {
+  background-color: rgba(231, 76, 60, 0.1);
+}
+
+/* 🌙 다크모드에서 리뷰 스타일 변경 */
+@media (prefers-color-scheme: dark) {
+  .review-item.correct {
+    background-color: rgba(39, 174, 96, 0.2);
+  }
+  .review-item.wrong {
+    background-color: rgba(192, 57, 43, 0.2);
+  }
+}
+
+.review-question {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.review-answer {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .quiz-app {
+    padding: 15px;
+  }
+
+  .quiz-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .quiz-footer {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
