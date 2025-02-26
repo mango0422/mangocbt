@@ -582,3 +582,140 @@ body[data-theme='light'] {
     background-color: #525252;
   }
 }
+
+.quiz-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.quiz-buttons .btn {
+  flex: 1;
+}
+
+.result-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.result-buttons .btn {
+  flex: 1;
+}
+
+.flashcard-section {
+  margin-top: 30px;
+  border-top: 1px solid var(--text-secondary);
+  padding-top: 20px;
+}
+
+.flashcard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.flashcard {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  perspective: 1000px;
+  margin: 20px 0;
+  cursor: pointer;
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.6s;
+  background-color: var(--card-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-front {
+  transform: rotateY(0deg);
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.flashcard.flipped .card-front {
+  transform: rotateY(180deg);
+}
+
+.flashcard.flipped .card-back {
+  transform: rotateY(0deg);
+}
+
+.question-number {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.question-text {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.flip-hint {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  left: 0;
+}
+
+.answer-label,
+.explanation-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.answer {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+.explanation {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: rgba(52, 152, 219, 0.1);
+  border-radius: 5px;
+}
+
+.flashcard-controls {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.flashcard-controls button {
+  flex: 1;
+  margin: 0 5px;
+}
+
+.card-progress {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
